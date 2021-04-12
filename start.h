@@ -21,5 +21,6 @@ private slots:
 
 private:
     Ui::Start *ui;
+    //NineMainUi *mi;
 };
 #endif // START_H

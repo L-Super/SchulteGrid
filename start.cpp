@@ -21,4 +21,7 @@ void Start::on_pushButton_clicked()
     mi->show();
     //MainUi mi;
     //mi.exec();
+//    mi=new NineMainUi(this);
+//    mi->show();
+
 }
