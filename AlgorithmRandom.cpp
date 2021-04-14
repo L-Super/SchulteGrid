@@ -1,15 +1,24 @@
 #include"AlgorithmRandom.h"
+#include<ctime>
+int random (int i)
+{
+    return std::rand()%i;
+}
 
-int AlgoRand(vector<int> &num)
+void AlgoRand(std::vector<int> &num)
 {
     //vector<int> num;
     for(int i=1;i<10;i++)
     {
         num.push_back(i);
     }
-    random_shuffle(num.begin(),num.end());
+
+    srand((int)time(NULL));
+    //auto random=rand();
+    random_shuffle(num.begin(),num.end(),random);
     for(auto s:num)
         cout<<s<<" ";
+    cout<<endl;
     //return  num;
 
 }

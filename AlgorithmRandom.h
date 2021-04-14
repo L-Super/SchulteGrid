@@ -4,8 +4,8 @@
 #include<vector>
 #include <algorithm>
 using namespace std;
-template <class vector>
-int AlgoRand(vector &num);
+
+void AlgoRand(std::vector<int> &num);
 
 
 #endif // ALGORITHMRANDOM_H

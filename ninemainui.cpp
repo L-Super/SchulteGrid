@@ -23,13 +23,13 @@ NineMainUi::NineMainUi(QWidget *parent) :
     QLabel *label9=new QLabel;
 
     vector<int> vec;
-    for (int i=1;i<10;i++) {
-        vec.push_back(i);
-    }
-    for(auto c:vec)
-        std::cout<<c<<std::endl;
+//    for (int i=1;i<10;i++) {
+//        vec.push_back(i);
+//    }
+//    for(auto c:vec)
+//        std::cout<<c<<std::endl;
 
-    //AlgoRand(vec);
+    AlgoRand(vec);
     label1->setText("vec[1]");
 
 
