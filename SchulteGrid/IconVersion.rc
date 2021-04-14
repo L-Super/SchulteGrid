@@ -1,0 +1,40 @@
+IDI_ICON1 ICON  "img/icon.ico"
+ 
+#if defined(UNDER_CE)
+#include <winbase.h>
+#else
+#include <winver.h>
+#endif
+ 
+VS_VERSION_INFO VERSIONINFO
+    FILEVERSION 1,0,0,0
+    PRODUCTVERSION 1,0,0,0
+    FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+    FILEFLAGS VS_FF_DEBUG
+#else
+    FILEFLAGS 0x0L
+#endif
+    FILEOS VOS__WINDOWS32
+    FILETYPE VFT_DLL
+    FILESUBTYPE 0x0L
+    BEGIN
+        BLOCK "StringFileInfo"
+        BEGIN
+            BLOCK "080404b0"
+            BEGIN
+                VALUE "CompanyName", "BeiJing LiW Co., Ltd."
+                VALUE "FileDescription", "A game to improve your concentration"
+                VALUE "FileVersion", "1.0.0.0"
+                VALUE "InternalName", "SchulteGrid.exe"
+                VALUE "LegalCopyright", "Copyright (C)2021-2077"
+                VALUE "OriginalFilename", "SchulteGrid.exe"
+                VALUE "ProductName", "SchulteGrid"
+                VALUE "ProductVersion", "1.0.0.0"
+            END
+        END
+        BLOCK "VarFileInfo"
+        BEGIN
+            VALUE "Translation", 0x804, 1200
+        END
+    END
