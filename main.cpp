@@ -1,14 +1,22 @@
-#include "start.h"
-#include"ninemainui.h"
+#include "mainmenu.h"
+#include "selector.h"
+#include "mainmenu.h"
 
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Start w;
+    MainMenu w;
+    Selector selectors;
+
+//    if(selectors.exec()==QDialog::accept())
+//    {
+//        w.show();
+//        return a.exec();
+//    }
+//    else if()
+    selectors.show();
     w.show();
-//    NineMainUi *mi=new NineMainUi;
-//    mi->show();
     return a.exec();
 }

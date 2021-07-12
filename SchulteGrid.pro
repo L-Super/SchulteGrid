@@ -16,19 +16,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    AlgorithmRandom.cpp \
+    NumRand.cpp \
     main.cpp \
-    ninemainui.cpp \
-    start.cpp
+    mainmenu.cpp \
+    selector.cpp
 
 HEADERS += \
-    AlgorithmRandom.h \
-    ninemainui.h \
-    start.h
+    NumRand.h \
+    mainmenu.h \
+    selector.h
 
 FORMS += \
-    ninemainui.ui \
-    start.ui
+    mainmenu.ui \
+    selector.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
