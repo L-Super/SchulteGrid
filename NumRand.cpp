@@ -1,26 +1,19 @@
 #include"NumRand.h"
-#include<ctime>
-#include<iostream>
 #include <algorithm>
+#include <QtCore/QTime>
+#include <iostream>
 int random (int i)
 {
-    return std::rand()%i;
+    qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
+    return qrand()%i;;
 }
 
 void numrand::AlgoRand(QVector<int> &num)
 {
-    //vector<int> num;
-//    for(int i=1;i<10;i++)
-//    {
-//        num.push_back(i);
-//    }
-
-    srand((int)time(NULL));
-    //auto random=rand();
     std::random_shuffle(num.begin(),num.end(),random);
     for(auto s:num)
+        //qDebug()<<" "<<s;自带换行
         std::cout<<s<<" ";
-    std::cout<<std::endl;
-    //return  num;
+    std::cout<<""<<std::endl;
 
 }

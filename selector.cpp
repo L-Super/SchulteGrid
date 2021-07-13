@@ -17,3 +17,10 @@ Selector::~Selector()
 {
     delete ui;
 }
+
+void Selector::on_nineBtn_clicked()
+{
+    this->hide();
+    MainMenu* mainwidow=new MainMenu;
+    mainwidow->show();
+}

@@ -17,6 +17,6 @@ int main(int argc, char *argv[])
 //    }
 //    else if()
     selectors.show();
-    w.show();
+    //w.show();
     return a.exec();
 }

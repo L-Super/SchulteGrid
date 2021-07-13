@@ -25,6 +25,6 @@ private slots:
 
 private:
     Ui::MainMenu *ui;
-    QElapsedTimer *timer;
+    //QElapsedTimer *timer;
 };
 #endif // MAINMENU_H
