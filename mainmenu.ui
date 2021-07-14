@@ -10,8 +10,23 @@
     <height>600</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>400</width>
+    <height>300</height>
+   </size>
+  </property>
   <property name="windowTitle">
-   <string>MainMenu</string>
+   <string>舒尔特方格</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="UiSettings.qrc">
+    <normaloff>:/UI/UiSettings/ico.svg</normaloff>:/UI/UiSettings/ico.svg</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">   
+.QLabel{color:rgb(254,212,128)}
+.QPushButton{color:white;background-color:rgb(16,37,53);border-style: outset;border-radius:5px;padding: 6px;}</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -181,6 +196,12 @@
     <layout class="QHBoxLayout" name="horizontalLayout_5">
      <item>
       <widget class="QPushButton" name="startBtn">
+       <property name="font">
+        <font>
+         <family>黑体</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
        <property name="text">
         <string>开始</string>
        </property>
@@ -188,6 +209,15 @@
      </item>
      <item>
       <widget class="QPushButton" name="endBtn">
+       <property name="font">
+        <font>
+         <family>黑体</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
        <property name="text">
         <string>停止</string>
        </property>
@@ -199,18 +229,33 @@
     <layout class="QHBoxLayout" name="horizontalLayout_4">
      <item>
       <widget class="QLabel" name="showtimelabel">
+       <property name="font">
+        <font>
+         <family>黑体</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
        <property name="text">
         <string>用时： </string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLCDNumber" name="lcdNumber"/>
+      <widget class="QLCDNumber" name="lcdNumber">
+       <property name="font">
+        <font>
+         <family>Agency FB</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="UiSettings.qrc"/>
+ </resources>
  <connections/>
 </ui>

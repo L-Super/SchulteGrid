@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>Selector</class>
  <widget class="QDialog" name="Selector">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,7 +14,17 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>SchulteGrid(舒尔特方格)</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="UiSettings.qrc">
+    <normaloff>:/UI/UiSettings/ico.svg</normaloff>:/UI/UiSettings/ico.svg</iconset>
+  </property>
+  <property name="toolTip">
+   <string/>
+  </property>
+  <property name="whatsThis">
+   <string>舒尔特方格法</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -62,6 +75,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="UiSettings.qrc"/>
+ </resources>
  <connections/>
 </ui>

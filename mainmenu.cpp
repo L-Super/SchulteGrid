@@ -9,14 +9,14 @@ MainMenu::MainMenu(QWidget *parent)
     , ui(new Ui::MainMenu)
 {
     ui->setupUi(this);
-    this->setWindowTitle(QString("9宫格"));
+    this->setWindowTitle(QString("9宫格 - 舒尔特方格"));
     //设置窗口背景色
     // 黑色 32,73,105 16,37,53
     // 橙色 254,212,128
     setPalette(QPalette(QColor(32,73,105)));
     setAutoFillBackground(true);
-    QPalette pe;
-    pe.setColor(QPalette::WindowText,QColor(254,212,128));
+//    QPalette pe;
+//    pe.setColor(QPalette::WindowText,QColor(254,212,128));
 //    ui->label_1->setPalette(pe);
 //    ui->label_2->setPalette(pe);
 //    ui->label_3->setPalette(pe);
@@ -30,38 +30,13 @@ MainMenu::MainMenu(QWidget *parent)
     //color 设定前景色，就是字体的颜色
     //background 设定后景色，就是按钮的背景的颜色
     //border-radius设定边框的弧度
-    QString button_style="QPushButton{color:white;background-color:rgb(16,37,53);"
-                         "border-style: outset;border-radius:5px;padding: 6px;}";
+    // 移至ui qss
+    //QString button_style="QPushButton{color:white;background-color:rgb(16,37,53);"
+    //                     "border-style: outset;border-radius:5px;padding: 6px;}";
 
     //    ui->startBtn->setStyleSheet(button_style);
     //    ui->endBtn->setStyleSheet(button_style);
 
-    QObjectList cs = this->children();//访问当前MainMenu子节点控件
-    qDebug()<< this->objectName();//获取控件对象名字
-
-    QObjectList pblist=this->ui->splitter->children();
-    for (int i = 0; i < pblist.size(); i++)
-        {
-            qDebug() << "splitter: "<<pblist[i]->objectName();
-        }
-
-    const QMetaObject *mobj = this->ui->horizontalLayout_5->metaObject();//获取控件对象类型
-    qDebug() << "控件对象类型:" << mobj->className() << endl;
-    QString cName = mobj->className();
-    if (cName == "QPushButton")
-    {
-        QPushButton *pb = qobject_cast<QPushButton *>(this);
-        if (pb)
-        {
-            pb->setStyleSheet(button_style);
-        }
-    }
-    else if(cName == "QLabel")
-    {
-        QLabel* label= qobject_cast<QLabel *>(this);
-        if(label)
-            label->setPalette(pe);
-    }
 
 }
 
