@@ -7,7 +7,7 @@ Selector::Selector(QWidget *parent) :
 {
     ui->setupUi(this);
     //this->setWindowTitle(QString("SchulteGrid"));
-    this->setStyleSheet("background-color:rgb(16,37,53);");
+//    this->setStyleSheet("background-color:rgb(16,37,53);");
     this->ui->label->setStyleSheet("color:white;");
     ui->nineBtn->setStyleSheet("color:white;");
     ui->sixteenBtn->setStyleSheet("color:white;");
@@ -21,6 +21,13 @@ Selector::~Selector()
 void Selector::on_nineBtn_clicked()
 {
     this->hide();
-    MainMenu* mainwidow=new MainMenu;
+    MainMenu* mainwidow = new MainMenu;
     mainwidow->show();
+}
+
+void Selector::on_sixteenBtn_clicked()
+{
+    this->hide();
+    SixteenGrid* sixteenWindow = new SixteenGrid;
+    sixteenWindow->show();
 }

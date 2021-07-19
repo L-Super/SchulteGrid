@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "mainmenu.h"
+#include "sixteengrid.h"
 
 namespace Ui {
 class Selector;
@@ -18,6 +19,8 @@ public:
 
 private slots:
     void on_nineBtn_clicked();
+
+    void on_sixteenBtn_clicked();
 
 private:
     Ui::Selector *ui;

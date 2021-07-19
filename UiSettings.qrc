@@ -1,5 +1,9 @@
 <RCC>
     <qresource prefix="/UI">
-        <file>UiSettings/ico.svg</file>
+        <file>UiSettings/uisetting.qss</file>
+        <file>UiSettings/img1.svg</file>
+        <file>UiSettings/img1_black.svg</file>
+        <file>UiSettings/logo.ico</file>
+        <file>UiSettings/blackground.png</file>
     </qresource>
 </RCC>

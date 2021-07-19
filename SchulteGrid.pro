@@ -19,16 +19,19 @@ SOURCES += \
     NumRand.cpp \
     main.cpp \
     mainmenu.cpp \
-    selector.cpp
+    selector.cpp \
+    sixteengrid.cpp
 
 HEADERS += \
     NumRand.h \
     mainmenu.h \
-    selector.h
+    selector.h \
+    sixteengrid.h
 
 FORMS += \
     mainmenu.ui \
-    selector.ui
+    selector.ui \
+    sixteengrid.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -37,3 +40,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     UiSettings.qrc
+
+RC_ICONS = logo.ico

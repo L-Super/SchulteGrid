@@ -14,11 +14,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>SchulteGrid(舒尔特方格)</string>
+   <string>SchulteGrid (舒尔特方格法)</string>
   </property>
   <property name="windowIcon">
    <iconset resource="UiSettings.qrc">
-    <normaloff>:/UI/UiSettings/ico.svg</normaloff>:/UI/UiSettings/ico.svg</iconset>
+    <normaloff>:/UI/UiSettings/logo.ico</normaloff>:/UI/UiSettings/logo.ico</iconset>
   </property>
   <property name="toolTip">
    <string/>

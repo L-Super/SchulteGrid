@@ -17,7 +17,6 @@ public:
     ~MainMenu();
     void refresh();
 
-
 private slots:
     void on_startBtn_clicked();
 

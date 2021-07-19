@@ -13,8 +13,9 @@ MainMenu::MainMenu(QWidget *parent)
     //设置窗口背景色
     // 黑色 32,73,105 16,37,53
     // 橙色 254,212,128
-    setPalette(QPalette(QColor(32,73,105)));
-    setAutoFillBackground(true);
+//    setPalette(QPalette(QColor(32,73,105)));
+//    setAutoFillBackground(true);
+
 //    QPalette pe;
 //    pe.setColor(QPalette::WindowText,QColor(254,212,128));
 //    ui->label_1->setPalette(pe);
