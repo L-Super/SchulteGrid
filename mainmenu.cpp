@@ -11,8 +11,6 @@ MainMenu::MainMenu(QWidget *parent)
     ui->setupUi(this);
     this->setWindowTitle(QString("9宫格 - 舒尔特方格"));
     //设置窗口背景色
-    // 黑色 32,73,105 16,37,53
-    // 橙色 254,212,128
 //    setPalette(QPalette(QColor(32,73,105)));
 //    setAutoFillBackground(true);
 
@@ -34,10 +32,10 @@ MainMenu::MainMenu(QWidget *parent)
     // 移至ui qss
     //QString button_style="QPushButton{color:white;background-color:rgb(16,37,53);"
     //                     "border-style: outset;border-radius:5px;padding: 6px;}";
-
     //    ui->startBtn->setStyleSheet(button_style);
     //    ui->endBtn->setStyleSheet(button_style);
-
+    this->ptimer = new QTimer;
+    connect(this->ptimer,SIGNAL(timeout()),this,SLOT(updateTimeAndDisplay()));
 
 }
 
@@ -69,8 +67,24 @@ void MainMenu::refresh()
 
 void MainMenu::on_startBtn_clicked()
 {
-    // 后期考虑只用一个按钮实现开始，停止切换
-    ui->startBtn->setText(QString::fromUtf8("停止"));
+    static QTime pauseTime;
+    // 设置property，按钮实现状态切换
+    if(ui->startBtn->property("status") == "stop")
+    {
+        ui->startBtn->setProperty("status", "start");
+        ui->startBtn->setText("开始");
+        QTime cut = QTime::currentTime();
+        int t = pauseTime.msecsTo(cut);
+        this->baseTime = this->baseTime.addMSecs(t);
+        this->ptimer->start(1);
+    }
+    else
+    {
+        this->baseTime = QTime::currentTime();
+        this->ptimer->start(1);
+        ui->startBtn->setProperty("status", "stop");
+        ui->startBtn->setText("停止");
+    }
 
     //this->timer->start();
 
@@ -83,8 +97,17 @@ void MainMenu::on_startBtn_clicked()
 
 void MainMenu::on_endBtn_clicked()
 {
-    //ui->lcdNumber->display(double(timer->elapsed()));
-    //this->timer->restart();
+    this->hide();
+    Selector* s = new Selector;
+    s->show();
+}
 
-
+void MainMenu::updateTimeAndDisplay()
+{
+    QTime current = QTime::currentTime();
+    int t = this->baseTime.msecsTo(current); //从基准时间到现在过了多少毫秒
+    QTime showTime(0,0,0,0);
+    showTime =showTime.addMSecs(t);
+    showStr = showTime.toString("hh:mm:ss:zzz");
+    this->ui->lcdNumber->display(showStr);
 }

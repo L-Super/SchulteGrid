@@ -22,8 +22,12 @@ private slots:
 
     void on_endBtn_clicked();
 
+    void updateTimeAndDisplay();
+
 private:
     Ui::MainMenu *ui;
-    //QElapsedTimer *timer;
+    QTimer *ptimer;
+    QTime baseTime;
+    QString showStr;
 };
 #endif // MAINMENU_H

@@ -218,7 +218,7 @@
           <string notr="true"/>
          </property>
          <property name="text">
-          <string>停止</string>
+          <string>返回</string>
          </property>
         </widget>
        </item>

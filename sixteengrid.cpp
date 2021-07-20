@@ -8,19 +8,13 @@ SixteenGrid::SixteenGrid(QWidget *parent) :
     ui(new Ui::SixteenGrid)
 {
     ui->setupUi(this);
-    QPixmap pixmap = QPixmap(":/UI/UiSettings/blackground.png").scaled(this->size());
+    //QPixmap pixmap = QPixmap(":/UI/UiSettings/blackground.png").scaled(this->size());
+    QPixmap pixmap = QPixmap(":/UI/UiSettings/blackground1.jpg").scaled(this->size());
     QPalette palette (this->palette());
     palette.setBrush(QPalette::Background, QBrush(pixmap));
     this->setPalette( palette );
 
-    const QMetaObject *mobj = this->metaObject();//获取控件对象类型
-    qDebug() << "控件对象类型:" << mobj->className() << endl;
-    QString cName = mobj->className();
-
-//    QList<QLineEdit *> lineEdit=ui->tabWidget->findChildren<QLineEdit *>();
-//        for (int i=0;i<lineEdit.count();i++)
-//        lineEdit.at(i)->setText("www.hicjiajia.cn");
-
+    // 获取所有QLabel 设置文本为"T"
     QList<QLabel*> label = this->findChildren<QLabel *>();
     for (int i=0;i<label.count();i++)
         label.at(i)->setText("T");
@@ -38,11 +32,21 @@ void SixteenGrid::displaynum()
     for (int i=0;i<16;++i) {
         num.push_back(i+1);
     }
-    numrand* randnum;
-    randnum->AlgoRand(num);
+    numrand randnum;
+    randnum.AlgoRand(num);
+    QList<QLabel*> label = this->findChildren<QLabel *>();
+    for (int i=0;i<label.count();i++)
+        label.at(i)->setNum(num[i]);
 }
 
 void SixteenGrid::on_pushButton_2_clicked()
 {
     displaynum();
+}
+
+void SixteenGrid::on_pushButton_clicked()
+{
+    this->hide();
+    Selector* s = new Selector;
+    s->show();
 }
