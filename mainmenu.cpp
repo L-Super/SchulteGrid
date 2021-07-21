@@ -34,9 +34,11 @@ MainMenu::MainMenu(QWidget *parent)
     //                     "border-style: outset;border-radius:5px;padding: 6px;}";
     //    ui->startBtn->setStyleSheet(button_style);
     //    ui->endBtn->setStyleSheet(button_style);
-    this->ptimer = new QTimer;
-    connect(this->ptimer,SIGNAL(timeout()),this,SLOT(updateTimeAndDisplay()));
 
+    this->ptimer = new QTimer;
+    //connect(sender, &Sender::valueChanged,receiver, &Receiver::updateValue);
+    connect(this->ptimer,SIGNAL(timeout()),this,SLOT(updateTimeAndDisplay()));
+    //ui->lcdNumber->display("00:00:000");
 }
 
 MainMenu::~MainMenu()
@@ -73,10 +75,12 @@ void MainMenu::on_startBtn_clicked()
     {
         ui->startBtn->setProperty("status", "start");
         ui->startBtn->setText("开始");
+        //进行差值计算
         QTime cut = QTime::currentTime();
-        int t = pauseTime.msecsTo(cut);
+        auto t = pauseTime.msecsTo(cut);
+        qDebug()<<"t: "<<t;
         this->baseTime = this->baseTime.addMSecs(t);
-        this->ptimer->start(1);
+        this->ptimer->stop();
     }
     else
     {
@@ -86,12 +90,7 @@ void MainMenu::on_startBtn_clicked()
         ui->startBtn->setText("停止");
     }
 
-    //this->timer->start();
-
-    //auto updatetime = timer->elapsed();
-//    ui->lcdNumber->display(double(timer->elapsed()));
     refresh();
-
 }
 
 
@@ -105,7 +104,7 @@ void MainMenu::on_endBtn_clicked()
 void MainMenu::updateTimeAndDisplay()
 {
     QTime current = QTime::currentTime();
-    int t = this->baseTime.msecsTo(current); //从基准时间到现在过了多少毫秒
+    auto t = this->baseTime.msecsTo(current); //从基准时间到现在过了多少毫秒
     QTime showTime(0,0,0,0);
     showTime =showTime.addMSecs(t);
     showStr = showTime.toString("hh:mm:ss:zzz");
