@@ -41,4 +41,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     UiSettings.qrc
 
-RC_ICONS = logo.ico
+#RC_ICONS = logo.ico
+
+RC_FILE = SchulteGrid_resource.rc
