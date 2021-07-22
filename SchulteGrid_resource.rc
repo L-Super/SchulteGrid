@@ -1,6 +1,6 @@
 #include <windows.h>
 
-IDI_ICON1	ICON	DISCARDABLE	"D:\\Git_Project\\schulte-grid\\logo.ico"
+IDI_ICON1	ICON	"UiSettings\\logo.ico"
 
 VS_VERSION_INFO VERSIONINFO
 	FILEVERSION 0,0,0,0
@@ -19,13 +19,13 @@ VS_VERSION_INFO VERSIONINFO
 		BEGIN
 			BLOCK "040904b0"
 			BEGIN
-				VALUE "CompanyName", "\0"
-				VALUE "FileDescription", "\0"
-				VALUE "FileVersion", "0.0.0.0\0"
-				VALUE "LegalCopyright", "\0"
+				VALUE "CompanyName", "LiM\0"
+				VALUE "FileDescription", "舒尔特方格法 - 提高注意力\0"
+				VALUE "FileVersion", "1.2.0.0\0"
+				VALUE "LegalCopyright", "Copyright (C)2021-2077\0"
 				VALUE "OriginalFilename", "SchulteGrid.exe\0"
 				VALUE "ProductName", "SchulteGrid\0"
-				VALUE "ProductVersion", "0.0.0.0\0"
+				VALUE "ProductVersion", "1.2.5.0\0"
 			END
 		END
 		BLOCK "VarFileInfo"
