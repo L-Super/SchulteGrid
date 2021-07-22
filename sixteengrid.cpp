@@ -16,7 +16,7 @@ SixteenGrid::SixteenGrid(QWidget *parent) :
 
     // 获取所有QLabel 设置文本为"T"
     QList<QLabel*> label = this->findChildren<QLabel *>();
-    for (int i=0;i<label.count();i++)
+    for (int i=0;i<label.count() - 1;i++)
         label.at(i)->setText("T");
     this->ptimer = new QTimer;
     connect(this->ptimer,SIGNAL(timeout()),this,SLOT(updateTimeAndDisplay()));

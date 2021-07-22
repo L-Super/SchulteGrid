@@ -26,7 +26,7 @@
    <string>舒尔特方格</string>
   </property>
   <property name="windowIcon">
-   <iconset>
+   <iconset resource="UiSettings.qrc">
     <normaloff>:/UI/UiSettings/img1.svg</normaloff>:/UI/UiSettings/img1.svg</iconset>
   </property>
   <property name="styleSheet">
@@ -198,7 +198,7 @@
          <property name="font">
           <font>
            <family>黑体</family>
-           <pointsize>14</pointsize>
+           <pointsize>16</pointsize>
           </font>
          </property>
          <property name="text">
@@ -211,7 +211,7 @@
          <property name="font">
           <font>
            <family>黑体</family>
-           <pointsize>14</pointsize>
+           <pointsize>16</pointsize>
           </font>
          </property>
          <property name="styleSheet">
@@ -225,35 +225,51 @@
       </layout>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <layout class="QHBoxLayout" name="horizontalLayout_6">
        <item>
-        <widget class="QLabel" name="label">
-         <property name="text">
-          <string>图标</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="showtimelabel">
-         <property name="font">
-          <font>
-           <family>黑体</family>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>用时： </string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-         </property>
-        </widget>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QLabel" name="imglabel">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>200</width>
+             <height>200</height>
+            </size>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="showtimelabel">
+           <property name="font">
+            <font>
+             <family>黑体</family>
+             <pointsize>14</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>用时： </string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item>
         <widget class="QLCDNumber" name="lcdNumber">
          <property name="font">
           <font>
-           <family>Agency FB</family>
+           <family>Arial</family>
            <pointsize>12</pointsize>
           </font>
          </property>
@@ -262,6 +278,9 @@
          </property>
          <property name="autoFillBackground">
           <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
          </property>
          <property name="smallDecimalPoint">
           <bool>false</bool>
@@ -283,6 +302,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="UiSettings.qrc"/>
+ </resources>
  <connections/>
 </ui>

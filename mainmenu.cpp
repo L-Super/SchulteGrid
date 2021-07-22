@@ -10,6 +10,19 @@ MainMenu::MainMenu(QWidget *parent)
 {
     ui->setupUi(this);
     this->setWindowTitle(QString("9宫格 - 舒尔特方格"));
+    QPixmap blackground = QPixmap(":/UI/UiSettings/blackground2.jpg").scaled(this->size());
+    QPalette palette (this->palette());
+    palette.setBrush(QPalette::Background, QBrush(blackground));
+    this->setPalette( palette );
+
+
+
+//    Qt::IgnoreAspectRatio, Qt::SmoothTransformation  // 饱满填充
+//    Qt::KeepAspectRatio, Qt::SmoothTransformation  // 按比例缩放
+
+
+    QPixmap pixmap = QPixmap(":/UI/UiSettings/time.png").scaled(ui->imglabel->size(),Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    ui->imglabel->setPixmap(pixmap);
     //设置窗口背景色
 //    setPalette(QPalette(QColor(32,73,105)));
 //    setAutoFillBackground(true);
@@ -37,7 +50,6 @@ MainMenu::MainMenu(QWidget *parent)
 
     this->ptimer = new QTimer;
     connect(this->ptimer,SIGNAL(timeout()),this,SLOT(updateTimeAndDisplay()));
-    //ui->lcdNumber->display("00:00:000");
 }
 
 MainMenu::~MainMenu()
