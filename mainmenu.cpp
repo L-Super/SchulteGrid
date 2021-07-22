@@ -36,7 +36,6 @@ MainMenu::MainMenu(QWidget *parent)
     //    ui->endBtn->setStyleSheet(button_style);
 
     this->ptimer = new QTimer;
-    //connect(sender, &Sender::valueChanged,receiver, &Receiver::updateValue);
     connect(this->ptimer,SIGNAL(timeout()),this,SLOT(updateTimeAndDisplay()));
     //ui->lcdNumber->display("00:00:000");
 }

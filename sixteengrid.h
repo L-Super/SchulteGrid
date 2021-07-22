@@ -2,6 +2,7 @@
 #define SIXTEENGRID_H
 
 #include <QDialog>
+#include <QTime>
 
 namespace Ui {
 class SixteenGrid;
@@ -21,8 +22,13 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void updateTimeAndDisplay();
+
 private:
     Ui::SixteenGrid *ui;
+    QTimer *ptimer;
+    QTime baseTime;
+    QString showStr;
 };
 
 #endif // SIXTEENGRID_H
