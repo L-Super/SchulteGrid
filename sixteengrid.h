@@ -1,14 +1,14 @@
 #ifndef SIXTEENGRID_H
 #define SIXTEENGRID_H
 
-#include <QDialog>
+#include <QWidget>
 #include <QTime>
 
 namespace Ui {
 class SixteenGrid;
 }
 
-class SixteenGrid : public QDialog
+class SixteenGrid : public QWidget
 {
     Q_OBJECT
 

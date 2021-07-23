@@ -4,7 +4,7 @@
 #include "selector.h"
 
 SixteenGrid::SixteenGrid(QWidget *parent) :
-    QDialog(parent),
+    QWidget(parent),
     ui(new Ui::SixteenGrid)
 {
     ui->setupUi(this);
