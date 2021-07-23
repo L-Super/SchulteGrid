@@ -5,6 +5,17 @@ QLabel{color:rgb(254,212,128)}
 QPushButton{color:white;background-color:rgb(16,37,53);border-style: outset;border-radius:5px;padding: 6px;}
 */
 /* 透明 */
-QPushButton{background: transparent;color:rgb(254,212,128);border-style: outset;border-radius:5px;padding: 6px;}
+QPushButton{background: transparent;color:rgb(254,212,128);background-color:rgb(255,0,0,8);border: none;border-radius:5px;padding: 6px;}
+/* 鼠标悬浮时 */
+QPushButton:hover{
+	color: white;
+	border-color: rgb(254,212,128);
+}
+/* 鼠标点击时 */
+QPushButton:pressed{
+	color: white;
+    background-color: rgb(16,37,53);
+}
+
 QLCDNumber{color: rgb(255, 255, 255)}
 

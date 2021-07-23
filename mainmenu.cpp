@@ -23,6 +23,7 @@ MainMenu::MainMenu(QWidget *parent)
 
     QPixmap pixmap = QPixmap(":/UI/UiSettings/time.png").scaled(ui->imglabel->size(),Qt::KeepAspectRatio, Qt::SmoothTransformation);
     ui->imglabel->setPixmap(pixmap);
+    ui->imglabel->setAlignment(Qt::AlignCenter);
     //设置窗口背景色
 //    setPalette(QPalette(QColor(32,73,105)));
 //    setAutoFillBackground(true);
