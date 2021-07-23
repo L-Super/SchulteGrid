@@ -43,4 +43,6 @@ RESOURCES += \
 
 #RC_ICONS = logo.ico
 
+VERSION = 2.0.5
+
 RC_FILE = SchulteGrid_resource.rc
