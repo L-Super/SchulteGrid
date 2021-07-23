@@ -15,12 +15,8 @@ MainMenu::MainMenu(QWidget *parent)
     palette.setBrush(QPalette::Background, QBrush(blackground));
     this->setPalette( palette );
 
-
-
 //    Qt::IgnoreAspectRatio, Qt::SmoothTransformation  // 饱满填充
 //    Qt::KeepAspectRatio, Qt::SmoothTransformation  // 按比例缩放
-
-
     QPixmap pixmap = QPixmap(":/UI/UiSettings/time.png").scaled(ui->imglabel->size(),Qt::KeepAspectRatio, Qt::SmoothTransformation);
     ui->imglabel->setPixmap(pixmap);
     ui->imglabel->setAlignment(Qt::AlignCenter);
@@ -31,14 +27,6 @@ MainMenu::MainMenu(QWidget *parent)
 //    QPalette pe;
 //    pe.setColor(QPalette::WindowText,QColor(254,212,128));
 //    ui->label_1->setPalette(pe);
-//    ui->label_2->setPalette(pe);
-//    ui->label_3->setPalette(pe);
-//    ui->label_4->setPalette(pe);
-//    ui->label_5->setPalette(pe);
-//    ui->label_6->setPalette(pe);
-//    ui->label_7->setPalette(pe);
-//    ui->label_8->setPalette(pe);
-//    ui->label_9->setPalette(pe);
 
     //color 设定前景色，就是字体的颜色
     //background 设定后景色，就是按钮的背景的颜色

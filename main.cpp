@@ -7,7 +7,6 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainMenu w;
     Selector selectors;
     QFile qss(":/UI/UiSettings/uisetting.qss");
     if( qss.open(QFile::ReadOnly))
@@ -20,8 +19,6 @@ int main(int argc, char *argv[])
         qDebug("Open failed");
     }
 
-
     selectors.show();
-    //w.show();
     return a.exec();
 }

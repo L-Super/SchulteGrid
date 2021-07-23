@@ -6,11 +6,11 @@ Selector::Selector(QWidget *parent) :
     ui(new Ui::Selector)
 {
     ui->setupUi(this);
-    //this->setWindowTitle(QString("SchulteGrid"));
-//    this->setStyleSheet("background-color:rgb(16,37,53);");
     this->ui->label->setStyleSheet("color:white;");
     ui->nineBtn->setStyleSheet("color:white;");
     ui->sixteenBtn->setStyleSheet("color:white;");
+    // 去掉问号，只保留关闭
+    this->setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowCloseButtonHint);
 }
 
 Selector::~Selector()
