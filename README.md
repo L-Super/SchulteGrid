@@ -4,8 +4,22 @@
 
 舒尔特方格(Schulte Grid) 注意力测试训练
 
-## 附录
-打包软件 EnigmaVirtualBox https://www.enigmaprotector.com/en/aboutvb.html
+舒尔特方格的训练目标，包括以下几种能力：
 
-也可使用其他 nsis
-https://nsis.sourceforge.io/Download 可使用此工具尝试打包程序
++ 思维反应速度
++ 注意力
++ 视觉识别
+
+
+舒尔特方格是全世界范围内最简单，最有效也是最科学的注意力训练方法。寻找目标数字时，注意力是需要极度集中的，把这短暂的高强度的集中精力过程反复练习，大脑的集中注意力功能就会不断的加固，提高。注意水平越来越高。
+
+训练时，要求被测者用手指按 1 ~ 25 的顺序依次指出其位置，同时诵读出声，施测者一旁记录所用时间。数完 25 个数字所用时间越短，注意力水平越高。
+
+## 附录
+
+记录采用的打包软件，避免后期遗忘
+
+打包绿色版软件 EnigmaVirtualBox https://www.enigmaprotector.com/en/aboutvb.html
+
+也可使用其他 nsis ，貌似有点复杂，而且是安装版
+https://nsis.sourceforge.io/Download 
