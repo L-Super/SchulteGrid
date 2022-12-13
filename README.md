@@ -15,11 +15,3 @@
 
 训练时，要求被测者用手指按 1 ~ 25 的顺序依次指出其位置，同时诵读出声，施测者一旁记录所用时间。数完 25 个数字所用时间越短，注意力水平越高。
 
-## 附录
-
-记录采用的打包软件，避免后期遗忘
-
-打包绿色版软件 EnigmaVirtualBox https://www.enigmaprotector.com/en/aboutvb.html
-
-也可使用其他 nsis ，貌似有点复杂，而且是安装版
-https://nsis.sourceforge.io/Download 

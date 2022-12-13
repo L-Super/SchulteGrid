@@ -1,24 +1,26 @@
-#include "mainmenu.h"
-#include "selector.h"
-#include "mainmenu.h"
-#include <QFile>
 #include <QApplication>
+#include <QFile>
+#include <QIcon>
+#include "MenuWidget.h"
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
-    Selector selectors;
-    QFile qss(":/UI/UiSettings/uisetting.qss");
-    if( qss.open(QFile::ReadOnly))
-    {
-        qApp->setStyleSheet(qss.readAll());
-        qss.close();
-    }
-    else
-    {
-        qDebug("Open failed");
-    }
 
-    selectors.show();
-    return a.exec();
+	QFile qss(":/resources/style.css");
+	if( qss.open(QFile::ReadOnly))
+	{
+		qApp->setStyleSheet(qss.readAll());
+		qss.close();
+	}
+	else
+	{
+		qDebug("Open failed");
+	}
+	//TODO:add ico
+	qApp->setWindowIcon(QIcon(":/resources/whale-logo.png"));
+
+	MenuWidget m;
+	m.show();
+
+    return QApplication::exec();
 }
