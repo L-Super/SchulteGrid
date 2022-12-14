@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.23)
-project(SchulteGrid)
+project(SchulteGrid VERSION 2.1.0)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_AUTOMOC ON)
@@ -14,6 +14,14 @@ find_package(Qt5 COMPONENTS
         Widgets
         REQUIRED)
 
+#if(CMAKE_SYSTEM_NAME MATCHES "Windows")
+#    message(STATUS "Windows system.So add rc file")
+#    set(MY_VERSIONINFO_RC "${CMAKE_CURRENT_SOURCE_DIR}/Version.rc")
+#    configure_file("${CMAKE_CURRENT_SOURCE_DIR}/Version.rc.in" "${MY_VERSIONINFO_RC}")
+#else()
+#    message(STATUS "other system")
+#endif()
+
 add_executable(SchulteGrid main.cpp
         MenuWidget.cpp MenuWidget.h MenuWidget.ui
         WhichModeWidget.cpp WhichModeWidget.h WhichModeWidget.ui
@@ -21,6 +29,7 @@ add_executable(SchulteGrid main.cpp
         Common.h
         RandomShuffle.h
         resources.qrc
+#        ${MY_VERSIONINFO_RC}
         )
 
 target_link_libraries(SchulteGrid
