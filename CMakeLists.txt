@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.23)
-project(SchulteGrid)
+project(SchulteGrid VERSION 2.1.0)
 
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_AUTOMOC ON)
@@ -14,6 +14,21 @@ find_package(Qt5 COMPONENTS
         Widgets
         REQUIRED)
 
+#注意：这里需要注意编译器路径问题，如果编译器位于D:\Program Files（含有空格），则可能会报路径无法识别错误
+#故这里如需版本信息，可使用D:\Qt\Tools\mingw810_64路径下的MinGW
+#FAILED: CMakeFiles/SchulteGrid.dir/VersionInfo.rc.obj
+#"D:\Program Files\..\CLion\bin\mingw\bin\windres.exe" -O coff ... 'D:\Program' 不是内部或外部命令，也不是可运行的程序或批处理文件。
+if(CMAKE_SYSTEM_NAME MATCHES "Windows")
+    message(STATUS "Version is ${CMAKE_PROJECT_VERSION}")
+    # 设置rc文件生成路径
+    set(VERSIONINFO_RC "${CMAKE_BINARY_DIR}/VersionInfo.rc")
+    configure_file("${CMAKE_CURRENT_SOURCE_DIR}/VersionInfo.rc.in" "${VERSIONINFO_RC}")
+else()
+    message(STATUS "Don't load rc file on other system")
+endif()
+
+message(NOTICE "if wrong message is [FAILED: CMakeFiles/SchulteGrid.dir/VersionInfo.rc.obj], please change compiler without space path.")
+
 add_executable(SchulteGrid main.cpp
         MenuWidget.cpp MenuWidget.h MenuWidget.ui
         WhichModeWidget.cpp WhichModeWidget.h WhichModeWidget.ui
@@ -21,6 +36,7 @@ add_executable(SchulteGrid main.cpp
         Common.h
         RandomShuffle.h
         resources.qrc
+        ${VERSIONINFO_RC}
         )
 
 target_link_libraries(SchulteGrid
