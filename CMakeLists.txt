@@ -14,6 +14,10 @@ find_package(Qt5 COMPONENTS
         Widgets
         REQUIRED)
 
+#add leveldb lib
+include_directories(3rdparty)
+link_directories(lib)
+
 #注意：这里需要注意编译器路径问题，如果编译器位于D:\Program Files（含有空格），则可能会报路径无法识别错误
 #故这里如需版本信息，可使用D:\Qt\Tools\mingw810_64路径下的MinGW
 #FAILED: CMakeFiles/SchulteGrid.dir/VersionInfo.rc.obj
@@ -37,12 +41,13 @@ add_executable(SchulteGrid main.cpp
         RandomShuffle.h
         resources.qrc
         ${VERSIONINFO_RC}
-        )
+        LeveldbPimpl.cpp LeveldbPimpl.h)
 
 target_link_libraries(SchulteGrid
         Qt5::Core
         Qt5::Gui
         Qt5::Widgets
+        leveldb
         )
 
 if (WIN32)
