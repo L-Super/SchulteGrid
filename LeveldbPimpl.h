@@ -24,7 +24,7 @@ private:
 
 private:
 	std::string dbName;
-	leveldb::DB *db;
+	leveldb::DB* db;
 };
 
 

@@ -22,7 +22,6 @@ GameWidget::GameWidget(int num, QWidget *parent)
 	ui->setupUi(this);
 
 	int col = static_cast<int>(std::sqrt(num));
-	qcout<<"num:"<<num<<"col:"<<col<<"sqrt:"<<std::sqrt(num);
 
 	setWindowTitle(QString("%1 宫格 - 舒尔特方格").arg(std::pow(col,2)));
 

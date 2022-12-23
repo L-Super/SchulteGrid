@@ -3,7 +3,8 @@
 //
 
 #include "LeveldbPimpl.h"
-LeveldbPimpl::LeveldbPimpl():dbName("/data")
+
+LeveldbPimpl::LeveldbPimpl():dbName("./data")
 {
 	OpenDB(dbName);
 }
@@ -41,6 +42,7 @@ std::list<std::string> LeveldbPimpl::GetAllData()
 //		spdlog::info("key: {} value: {}", it->key().ToString(), it->value().ToString());
 		list.emplace_back(it->value().ToString());
 	}
+	delete it;
 	return list;
 }
 bool LeveldbPimpl::ClearDB()

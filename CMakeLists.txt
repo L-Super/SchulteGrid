@@ -15,8 +15,9 @@ find_package(Qt5 COMPONENTS
         REQUIRED)
 
 #add leveldb lib
-include_directories(3rdparty)
-link_directories(lib)
+#添加子目录，并将输出文件存放至${CMAKE_BINARY_DIR}
+add_subdirectory(3rdparty/leveldb ${CMAKE_BINARY_DIR}/leveldb)
+#include_directories(3rdparty/leveldb/include)
 
 #注意：这里需要注意编译器路径问题，如果编译器位于D:\Program Files（含有空格），则可能会报路径无法识别错误
 #故这里如需版本信息，可使用D:\Qt\Tools\mingw810_64路径下的MinGW
