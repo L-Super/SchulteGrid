@@ -10,6 +10,7 @@
 #include <QTimer>
 #include <QTime>
 #include "Common.h"
+#include "LeveldbPimpl.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -31,6 +32,9 @@ public:
 	void UpdateTimeDisplay();
 	void UpdateLabel(bool emptyLabel = false);
 
+ private:
+	bool AddData2DB(QDateTime nowTime, int mode, QTime useTime);
+
 signals:
 	void btnClickedSignal(SignalType type);
 
@@ -41,6 +45,9 @@ private:
 	QTimer* stopTimer;// 停止计时后触发操作的计时器
 	QTime startTime;
 	std::vector<int> vData;
+	LeveldbPimpl db;
+	int mode;//几宫格模式
+	QTime gameTime;//用时时间
 };
 
 

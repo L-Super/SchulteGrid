@@ -44,11 +44,26 @@ add_executable(SchulteGrid main.cpp
         ${VERSIONINFO_RC}
         LeveldbPimpl.cpp LeveldbPimpl.h)
 
+include(FetchContent)
+FetchContent_Declare(json
+        GIT_REPOSITORY https://github.com/nlohmann/json.git
+        SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/json
+        )
+FetchContent_MakeAvailable(json)
+
+FetchContent_Declare(fmt
+        URL https://github.com/fmtlib/fmt/archive/refs/tags/9.1.0.tar.gz
+        SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/fmt
+        )
+FetchContent_MakeAvailable(fmt)
+
 target_link_libraries(SchulteGrid
         Qt5::Core
         Qt5::Gui
         Qt5::Widgets
         leveldb
+        nlohmann_json::nlohmann_json
+        fmt::fmt-header-only
         )
 
 if (WIN32)

@@ -9,6 +9,7 @@
 #include <QStackedLayout>
 #include "MenuWidget.h"
 #include "ui_MenuWidget.h"
+#include "fmt/format.h"
 
 MenuWidget::MenuWidget(QWidget *parent)
 	:
@@ -38,6 +39,13 @@ MenuWidget::MenuWidget(QWidget *parent)
 	connect(ui->recordBtn, &QPushButton::clicked, []()
 	{
 		qcout<<"record";
+		fmt::print("db \n");
+
+		auto list = LeveldbPimpl::instance().GetAllData();
+		if (list.empty())
+			fmt::print("db is empty\n");
+		for(auto& it:list)
+			fmt::print("data: {}\n",it);
 	});
 	connect(ui->helpBtn, &QPushButton::clicked, this, &MenuWidget::HelpBtnClick);
 	connect(modeWidget, &WhichModeWidget::btnClickedSignal, this, &MenuWidget::SwitchWidget);

@@ -72,7 +72,7 @@ QLCDNumber {
     color: rgb(255, 255, 255);
     padding: 1px;
     border-style: solid;
-    /* border: 1px solid #FFFFFF; */
+     /*border: 1px solid slategrey;*/
     border-radius: 8px;
     background-color: #1989FA;
 }
