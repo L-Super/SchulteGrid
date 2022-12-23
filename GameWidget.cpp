@@ -9,6 +9,7 @@
 #include "GameWidget.h"
 #include "ui_GameWidget.h"
 #include "RandomShuffle.h"
+#include "LeveldbPimpl.h"
 #include "nlohmann/json.hpp"
 #include "fmt/format.h"
 
@@ -20,8 +21,7 @@ GameWidget::GameWidget(int num, QWidget* parent)
 	QWidget(parent),
 	ui(new Ui::GameWidget),
 	timer(new QTimer()),
-	stopTimer(new QTimer()),
-	db(LeveldbPimpl::instance())
+	stopTimer(new QTimer())
 {
 	ui->setupUi(this);
 
@@ -141,7 +141,8 @@ bool GameWidget::AddData2DB(QDateTime nowTime, int mode, QTime useTime)
 	};
 
 	qcout << QString::fromStdString(dataJson.dump());
-	if(!db.PutData(now.toStdString(),dataJson.dump()))
+	LeveldbPimpl db;
+	if(!db.PutData(now.toStdString(), dataJson.dump()))
 	{
 		qcout<<"put data failed";
 	}

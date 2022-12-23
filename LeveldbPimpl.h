@@ -10,15 +10,8 @@
 #include "leveldb/db.h"
 
 class LeveldbPimpl {
- private:
-	LeveldbPimpl();
-
  public:
-	static LeveldbPimpl& instance()
-	{
-		static LeveldbPimpl db;
-		return db;
-	}
+	LeveldbPimpl();
 	~LeveldbPimpl();
 
  public:

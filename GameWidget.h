@@ -10,7 +10,6 @@
 #include <QTimer>
 #include <QTime>
 #include "Common.h"
-#include "LeveldbPimpl.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -45,7 +44,6 @@ private:
 	QTimer* stopTimer;// 停止计时后触发操作的计时器
 	QTime startTime;
 	std::vector<int> vData;
-	LeveldbPimpl db;
 	int mode;//几宫格模式
 	QTime gameTime;//用时时间
 };

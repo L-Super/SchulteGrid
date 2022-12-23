@@ -10,6 +10,7 @@
 #include "MenuWidget.h"
 #include "ui_MenuWidget.h"
 #include "fmt/format.h"
+#include "LeveldbPimpl.h"
 
 MenuWidget::MenuWidget(QWidget *parent)
 	:
@@ -39,9 +40,9 @@ MenuWidget::MenuWidget(QWidget *parent)
 	connect(ui->recordBtn, &QPushButton::clicked, []()
 	{
 		qcout<<"record";
-		fmt::print("db \n");
-
-		auto list = LeveldbPimpl::instance().GetAllData();
+//		fmt::print("db \n");
+		LeveldbPimpl db;
+		auto list = db.GetAllData();
 		if (list.empty())
 			fmt::print("db is empty\n");
 		for(auto& it:list)
