@@ -7,41 +7,38 @@
 
 #include <QWidget>
 
-#include "WhichModeWidget.h"
-#include "GameWidget.h"
 #include "Common.h"
+#include "GameWidget.h"
+#include "WhichModeWidget.h"
 
 class QStackedLayout;
 
 QT_BEGIN_NAMESPACE
-namespace Ui
-{
+namespace Ui {
 class MenuWidget;
 }
 QT_END_NAMESPACE
 
-class MenuWidget: public QWidget
-{
-Q_OBJECT
+class MenuWidget : public QWidget {
+  Q_OBJECT
 
 public:
-	explicit MenuWidget(QWidget *parent = nullptr);
+  explicit MenuWidget(QWidget* parent = nullptr);
 
-	~MenuWidget() override;
+  ~MenuWidget() override;
 
 protected:
-	void HelpBtnClick();
-	void SwitchWidget(SignalType type);
+  void HelpBtnClick();
+  void SwitchWidget(SignalType type);
 
 signals:
-	void switchWidgetSignal(SignalType type);
+  void switchWidgetSignal(SignalType type);
 
 private:
-	Ui::MenuWidget *ui;
-	QStackedLayout *stackedLayout;
-	WhichModeWidget *modeWidget;
-	GameWidget *gameWidget;
+  Ui::MenuWidget* ui;
+  QStackedLayout* stackedLayout;
+  WhichModeWidget* modeWidget;
+  GameWidget* gameWidget;
 };
 
-
-#endif //SCHULTEGRID_MENUWIDGET_H
+#endif  // SCHULTEGRID_MENUWIDGET_H

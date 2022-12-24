@@ -1,0 +1,31 @@
+# Run manually to reformat a file:
+# clang-format -i --style=file <file>
+Language: Cpp
+BasedOnStyle: Google
+# 缩进宽度
+IndentWidth: 2
+# 访问修饰符的缩进
+AccessModifierOffset: -2
+# 控制预处理指令缩进
+IndentPPDirectives: AfterHash
+# 控制switch声明中的case缩进
+IndentCaseLabels: true
+# 如果为true,则会分析当前文件中指针样式哪种样式占比大,则采用哪种样式;如果为false,则会根据PointerAlignment来决定
+DerivePointerAlignment: false
+# 代码最大列数
+ColumnLimit: 120
+# 控制着花括号的样式
+BraceWrapping:
+  AfterCaseLabel: true
+  AfterClass: true
+  AfterControlStatement: Always
+  AfterEnum: true
+  AfterFunction: true
+  AfterNamespace: false
+  AfterStruct: true
+  AfterExternBlock: false
+  BeforeCatch: true
+  BeforeElse: true
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
+  SplitEmptyNamespace: false

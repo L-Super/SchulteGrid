@@ -1,26 +1,24 @@
 #include <QApplication>
 #include <QFile>
 #include <QIcon>
+
 #include "MenuWidget.h"
 
-int main(int argc, char *argv[]) {
-    QApplication a(argc, argv);
+int main(int argc, char* argv[]) {
+  QApplication a(argc, argv);
 
-	QFile qss(":/resources/style.css");
-	if( qss.open(QFile::ReadOnly))
-	{
-		qApp->setStyleSheet(qss.readAll());
-		qss.close();
-	}
-	else
-	{
-		qDebug("Open failed");
-	}
-	//TODO:add ico
-	qApp->setWindowIcon(QIcon(":/resources/whale-logo.png"));
+  QFile qss(":/resources/style.css");
+  if (qss.open(QFile::ReadOnly)) {
+    qApp->setStyleSheet(qss.readAll());
+    qss.close();
+  } else {
+    qDebug("Open failed");
+  }
 
-	MenuWidget m;
-	m.show();
+  qApp->setWindowIcon(QIcon(":/resources/whale-logo.png"));
 
-    return QApplication::exec();
+  MenuWidget m;
+  m.show();
+
+  return QApplication::exec();
 }

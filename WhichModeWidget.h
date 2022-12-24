@@ -6,33 +6,35 @@
 #ifndef SCHULTEGRID_WHICHMODEWIDGET_H
 #define SCHULTEGRID_WHICHMODEWIDGET_H
 
-#include <QWidget>
 #include <QButtonGroup>
+#include <QWidget>
+
 #include "Common.h"
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class WhichModeWidget; }
+namespace Ui {
+class WhichModeWidget;
+}
 QT_END_NAMESPACE
 
 class WhichModeWidget : public QWidget {
-Q_OBJECT
+  Q_OBJECT
 
 public:
-    explicit WhichModeWidget(QWidget *parent = nullptr);
+  explicit WhichModeWidget(QWidget* parent = nullptr);
 
-    ~WhichModeWidget() override;
+  ~WhichModeWidget() override;
 
 public:
-    int EnterMode();
-	void EnterPushButtonClicked();
+  int EnterMode();
+  void EnterPushButtonClicked();
 
 signals:
-	void btnClickedSignal(SignalType type);
+  void btnClickedSignal(SignalType type);
 
 private:
-    Ui::WhichModeWidget *ui;
-    QButtonGroup* radioBtnGroup;
+  Ui::WhichModeWidget* ui;
+  QButtonGroup* radioBtnGroup;
 };
 
-
-#endif //SCHULTEGRID_WHICHMODEWIDGET_H
+#endif  // SCHULTEGRID_WHICHMODEWIDGET_H

@@ -65,7 +65,8 @@ add_executable(SchulteGrid main.cpp
         RandomShuffle.h
         resources.qrc
         ${VERSIONINFO_RC}
-        LeveldbPimpl.cpp LeveldbPimpl.h)
+        LeveldbPimpl.cpp LeveldbPimpl.h
+        RecordWidget.cpp RecordWidget.h RecordWidget.ui)
 
 include(FetchContent)
 FetchContent_Declare(json
