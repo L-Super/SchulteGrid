@@ -14,11 +14,6 @@ find_package(Qt5 COMPONENTS
         Widgets
         REQUIRED)
 
-#add leveldb lib
-#添加子目录，并将输出文件存放至${CMAKE_BINARY_DIR}
-add_subdirectory(3rdparty/leveldb ${CMAKE_BINARY_DIR}/leveldb)
-#include_directories(3rdparty/leveldb/include)
-
 #注意：这里需要注意编译器路径问题，如果编译器位于D:\Program Files（含有空格），则可能会报路径无法识别错误
 #故这里如需版本信息，可使用D:\Qt\Tools\mingw810_64路径下的MinGW
 #FAILED: CMakeFiles/SchulteGrid.dir/VersionInfo.rc.obj
@@ -33,6 +28,34 @@ else()
 endif()
 
 message(NOTICE "if wrong message is [FAILED: CMakeFiles/SchulteGrid.dir/VersionInfo.rc.obj], please change compiler without space path.")
+
+set(GIT_RESULT "")
+find_package(Git QUIET)
+#git submodule 初始化、抓取并检出任何嵌套的子模块下载
+if(GIT_FOUND)
+    message(STATUS "Execute git submodule step")
+    execute_process(
+            COMMAND ${GIT_EXECUTABLE} submodule update --init --recursive
+            OUTPUT_VARIABLE GIT_RESULT
+            OUTPUT_STRIP_TRAILING_WHITESPACE
+            ERROR_QUIET
+            WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    )
+else()
+    message(WARNING "Git not found")
+endif()
+
+if (GIT_RESULT STREQUAL "")
+    message(STATUS "Git `submodule update` step is skipped")
+else()
+    message(STATUS "Git output: ${GIT_RESULT}")
+endif()
+
+
+#add leveldb lib
+#添加子目录，并将输出文件存放至${CMAKE_BINARY_DIR}
+add_subdirectory(3rdparty/leveldb ${CMAKE_BINARY_DIR}/leveldb)
+#include_directories(3rdparty/leveldb/include)
 
 add_executable(SchulteGrid main.cpp
         MenuWidget.cpp MenuWidget.h MenuWidget.ui
