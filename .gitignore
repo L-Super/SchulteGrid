@@ -44,8 +44,11 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 _deps
-cmake-build-debug/*
-cmake-build-relase/*
 
 # idea
-.idea/*
+.idea/
+cmake-build-*/
+
+# 3rdparty
+3rdparty/fmt/
+3rdparty/json/
