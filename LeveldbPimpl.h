@@ -10,7 +10,8 @@
 
 #include "leveldb/db.h"
 
-class LeveldbPimpl {
+class LeveldbPimpl
+{
 public:
   LeveldbPimpl();
   ~LeveldbPimpl();

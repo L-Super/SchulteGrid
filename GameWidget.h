@@ -18,7 +18,8 @@ class GameWidget;
 }
 QT_END_NAMESPACE
 
-class GameWidget : public QWidget {
+class GameWidget : public QWidget
+{
   Q_OBJECT
 
 public:
@@ -41,10 +42,10 @@ private:
   QVector<QLabel*> vLabels;  // QLabel 集合
   QTimer* timer;             // 用时计时器
   QTimer* stopTimer;         // 停止计时后触发操作的计时器
-  QTime startTime;
-  std::vector<int> vData;
-  int mode;        // 几宫格模式
-  QTime gameTime;  // 用时时间
+  QTime startTime;           // 游戏开始的时间，基准时间
+  std::vector<int> vData;    // 存放数字的vector
+  int mode;                  // 几宫格模式
+  QTime gameTime;            // 用时时间
 };
 
 #endif  // GAMEWIDGET_H

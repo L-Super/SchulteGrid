@@ -10,11 +10,11 @@ AccessModifierOffset: -2
 IndentPPDirectives: AfterHash
 # 控制switch声明中的case缩进
 IndentCaseLabels: true
-# 如果为true,则会分析当前文件中指针样式哪种样式占比大,则采用哪种样式;如果为false,则会根据PointerAlignment来决定
-DerivePointerAlignment: false
 # 代码最大列数
 ColumnLimit: 120
-# 控制着花括号的样式
+#BreakBeforeBraces: Allman
+BreakBeforeBraces: Custom
+# 控制着花括号的样式(如果想要这个选项生效,必须将BreakBeforeBraces设置为BS_Custom(配置项对应Custom))
 BraceWrapping:
   AfterCaseLabel: true
   AfterClass: true
@@ -29,3 +29,6 @@ BraceWrapping:
   SplitEmptyFunction: false
   SplitEmptyRecord: false
   SplitEmptyNamespace: false
+
+# 允许重新排版注释
+#ReflowComments:	true

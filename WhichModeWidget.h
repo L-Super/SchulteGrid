@@ -17,7 +17,8 @@ class WhichModeWidget;
 }
 QT_END_NAMESPACE
 
-class WhichModeWidget : public QWidget {
+class WhichModeWidget : public QWidget
+{
   Q_OBJECT
 
 public:

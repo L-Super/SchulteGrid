@@ -13,7 +13,8 @@ class RecordWidget;
 }
 QT_END_NAMESPACE
 
-class RecordWidget : public QWidget {
+class RecordWidget : public QWidget
+{
   Q_OBJECT
 
 public:
@@ -49,6 +50,9 @@ public:
    */
   void AppendRowItem(const QDateTime& date, const QString& mode, const QString& time);
 
+  /**
+   * 将数据库的数据展示到tableWidget
+   */
   void ShowDBDataInTable();
 
 private:

@@ -19,7 +19,8 @@ using namespace std::chrono_literals;
 using json = nlohmann::json;
 
 GameWidget::GameWidget(int num, QWidget* parent)
-    : QWidget(parent), ui(new Ui::GameWidget), timer(new QTimer()), stopTimer(new QTimer()) {
+    : QWidget(parent), ui(new Ui::GameWidget), timer(new QTimer()), stopTimer(new QTimer())
+{
   ui->setupUi(this);
 
   int col = static_cast<int>(std::sqrt(num));
@@ -27,8 +28,10 @@ GameWidget::GameWidget(int num, QWidget* parent)
   mode = std::pow(col, 2);
   setWindowTitle(QString("%1 宫格 - 舒尔特方格").arg(mode));
 
-  for (int i = 0, n = 0; i < col; ++i) {
-    for (int j = 0; j < col; ++j) {
+  for (int i = 0, n = 0; i < col; ++i)
+  {
+    for (int j = 0; j < col; ++j)
+    {
       QLabel* label = new QLabel(" ", this);
       label->setAlignment(Qt::AlignCenter);
       label->setObjectName("gridLabel");
@@ -52,8 +55,11 @@ GameWidget::GameWidget(int num, QWidget* parent)
 }
 
 GameWidget::~GameWidget() { delete ui; }
-void GameWidget::StartBtnClicked() {
-  if (ui->startBtn->property("status") == true) {
+
+void GameWidget::StartBtnClicked()
+{
+  if (ui->startBtn->property("status") == true)
+  {
     // 切换为运行状态，停止按钮
 
     UpdateLabel();
@@ -65,7 +71,9 @@ void GameWidget::StartBtnClicked() {
     ui->startBtn->setText("停止计时（S）");
     ui->startBtn->setProperty("status", false);
     ui->startBtn->setShortcut(QKeySequence("S"));
-  } else {
+  }
+  else
+  {
     // 切换为就绪状态，开始按钮
     timer->stop();
 
@@ -79,42 +87,54 @@ void GameWidget::StartBtnClicked() {
     ui->startBtn->setShortcut(QKeySequence("S"));
   }
 }
-void GameWidget::UpdateTimeDisplay() {
+void GameWidget::UpdateTimeDisplay()
+{
   QTime current = QTime::currentTime();
   QTime time(0, 0, 0, 0);
   // 从基准时间到现在过了多少毫秒
   gameTime = time.addMSecs(this->startTime.msecsTo(current));
 
-  //	qcout<<gameTime;
+  // qcout<<gameTime;
 
   this->ui->lcdNumber->display(gameTime.toString("mm:ss.zzz"));
 }
-void GameWidget::UpdateLabel(bool emptyLabel) {
-  if (emptyLabel) {
-    for (auto& it : vLabels) {
+void GameWidget::UpdateLabel(bool emptyLabel)
+{
+  if (emptyLabel)
+  {
+    for (auto& it : vLabels)
+    {
       it->setText(" ");
     }
-  } else {
+  }
+  else
+  {
     RandomShuffle(vData.begin(), vData.end());
-    for (int i = 0; i < vLabels.size(); ++i) {
+    for (int i = 0; i < vLabels.size(); ++i)
+    {
       // 两者没区别
-      //		vLabels[i]->setText(QString::number(vData[i]));
+      // vLabels[i]->setText(QString::number(vData[i]));
       vLabels[i]->setNum(vData[i]);
     }
   }
 }
-bool GameWidget::AddData2DB(const QDateTime& nowTime, int mode, const QTime& useTime) {
+bool GameWidget::AddData2DB(const QDateTime& nowTime, int mode, const QTime& useTime)
+{
   QString now = nowTime.toString("yyyy-MM-dd hh:mm:ss.zzz");
   QString time = useTime.toString("mm:ss.zzz");
 
   qcout << "now:" << now << "time:" << time;
 
   json dataJson;
-  dataJson = {{"data_time", now.toStdString()}, {"mode", mode}, {"time", time.toStdString()}};
+  dataJson = {
+      {"data_time", now.toStdString()},
+      {"mode", mode},
+      {"time", time.toStdString()}};
 
   qcout << QString::fromStdString(dataJson.dump());
   LeveldbPimpl db;
-  if (!db.PutData(now.toStdString(), dataJson.dump())) {
+  if (!db.PutData(now.toStdString(), dataJson.dump()))
+  {
     qcout << "put data failed";
     return false;
   }

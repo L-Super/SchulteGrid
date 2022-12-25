@@ -19,7 +19,8 @@ MenuWidget::MenuWidget(QWidget* parent)
       ui(new Ui::MenuWidget),
       stackedLayout(new QStackedLayout()),
       modeWidget(new WhichModeWidget()),
-      gameWidget(new GameWidget()) {
+      gameWidget(new GameWidget())
+{
   ui->setupUi(this);
   setWindowTitle("舒尔特方格");
 
@@ -34,9 +35,8 @@ MenuWidget::MenuWidget(QWidget* parent)
 
   connect(ui->startBtn, &QPushButton::clicked, [this]() { SwitchWidget(SignalType::ModeWidgetSignal); });
   connect(ui->recordBtn, &QPushButton::clicked, this, [this]() {
-    //		QScopedPointer<RecordWidget> recordWidget(new
-    // RecordWidget(this));
-    RecordWidget* recordWidget = new RecordWidget(this);
+    RecordWidget* recordWidget = new RecordWidget();
+    recordWidget->resize(500,300);
     recordWidget->show();
   });
   connect(ui->helpBtn, &QPushButton::clicked, this, &MenuWidget::HelpBtnClick);
@@ -46,7 +46,8 @@ MenuWidget::MenuWidget(QWidget* parent)
 
 MenuWidget::~MenuWidget() { delete ui; }
 
-void MenuWidget::HelpBtnClick() {
+void MenuWidget::HelpBtnClick()
+{
   QMessageBox box;
   box.setWindowTitle("帮助");
 
@@ -59,14 +60,19 @@ void MenuWidget::HelpBtnClick() {
   box.setInformativeText(text);
   box.exec();
 }
-void MenuWidget::SwitchWidget(SignalType type) {
-  switch (type) {
-    case MenuWidgetSignal: {
+void MenuWidget::SwitchWidget(SignalType type)
+{
+  switch (type)
+  {
+    case MenuWidgetSignal:
+    {
       stackedLayout->setCurrentWidget(this);
       modeWidget->hide();
       this->show();
-    } break;
-    case GameWidgetSignal: {
+    }
+    break;
+    case GameWidgetSignal:
+    {
       // TODO:优化，考虑在这里new
       // remove old gameWidget
       stackedLayout->removeWidget(gameWidget);
@@ -79,11 +85,14 @@ void MenuWidget::SwitchWidget(SignalType type) {
 
       stackedLayout->setCurrentWidget(gameWidget);
       modeWidget->hide();
-    } break;
-    case ModeWidgetSignal: {
+    }
+    break;
+    case ModeWidgetSignal:
+    {
       stackedLayout->setCurrentWidget(modeWidget);
       this->hide();
       gameWidget->hide();
-    } break;
+    }
+    break;
   }
 }

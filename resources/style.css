@@ -1,15 +1,25 @@
 QWidget {
     background-color: #FFFFFF;
+    /*background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 #2c3e50, stop:1 #FFFFFF);*/
 }
 
 QWidget#MenuWidget {
     background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 #2c3e50, stop:1 #FFFFFF);
 }
 
+QWidget#RecordWidget {
+    background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 #2c3e50, stop:1 #FFFFFF);
+}
+
+QWidget#WhichModeWidget {
+    background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 #2c3e50, stop:1 #FFFFFF);
+}
+
 QWidget#GameWidget {
     /* background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 #0F2027, stop:0.5 #203A43, stop:1 #2C5364); */
     /* background-image: url(:/resources/bg.jpg); */
-    border-image: url(:/resources/bg.jpg);
+    /*border-image: url(:/resources/bg.jpg);*/
+    background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 #2c3e50, stop:1 #FFFFFF);
 }
 
 QPushButton {
@@ -78,36 +88,42 @@ QLCDNumber {
 }
 
 QRadioButton {
+    font-size: 20px;
     color: #000000;
-    padding: 1px;
+    background-color: transparent;
+}
+
+QRadioButton:pressed{
+    color: #1989FA;
+    background-color: transparent;
 }
 
 QRadioButton::indicator:checked {
-    height: 10px;
-    width: 10px;
+    /*height: 10px;*/
+    /*width: 10px;*/
     border-style: solid;
     border-radius: 5px;
     border-width: 1px;
     border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));
-    color: #a9b7c6;
     background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));
 }
 
-QRadioButton::indicator:!checked {
-    height: 10px;
-    width: 10px;
+QRadioButton::indicator:unchecked {
+    /*height: 10px;*/
+    /*width: 10px;*/
     border-style: solid;
     border-radius: 5px;
     border-width: 1px;
     border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));
-    color: #a9b7c6;
     background-color: transparent;
 }
 
 QSpinBox {
+    font-size: 20px;
     border-style: solid;
     border-width: 1px;
     border-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 rgba(0, 113, 255, 255), stop:1 rgba(91, 171, 252, 255));
+    background-color: transparent;
 }
 
 /************************************************************************************************************************************************/

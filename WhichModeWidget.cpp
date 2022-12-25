@@ -13,7 +13,8 @@
 #include "ui_WhichModeWidget.h"
 
 WhichModeWidget::WhichModeWidget(QWidget* parent)
-    : QWidget(parent), ui(new Ui::WhichModeWidget), radioBtnGroup(new QButtonGroup()) {
+    : QWidget(parent), ui(new Ui::WhichModeWidget), radioBtnGroup(new QButtonGroup())
+{
   ui->setupUi(this);
   setWindowTitle("选择模式");
 
@@ -28,21 +29,29 @@ WhichModeWidget::WhichModeWidget(QWidget* parent)
 
 WhichModeWidget::~WhichModeWidget() { delete ui; }
 
-int WhichModeWidget::EnterMode() {
+int WhichModeWidget::EnterMode()
+{
   int result{0};
-  switch (radioBtnGroup->checkedId()) {
-    case 0: {
+  switch (radioBtnGroup->checkedId())
+  {
+    case 0:
+    {
       // nine grid
       result = 9;
-    } break;
-    case 1: {
+    }
+    break;
+    case 1:
+    {
       // 16 grid
       result = 16;
-    } break;
-    case 2: {
+    }
+    break;
+    case 2:
+    {
       // custom grid
       result = ui->spinBox->value();
-    } break;
+    }
+    break;
   }
   return result;
 }

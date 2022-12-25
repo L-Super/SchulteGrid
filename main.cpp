@@ -4,14 +4,18 @@
 
 #include "MenuWidget.h"
 
-int main(int argc, char* argv[]) {
+int main(int argc, char* argv[])
+{
   QApplication a(argc, argv);
 
   QFile qss(":/resources/style.css");
-  if (qss.open(QFile::ReadOnly)) {
+  if (qss.open(QFile::ReadOnly))
+  {
     qApp->setStyleSheet(qss.readAll());
     qss.close();
-  } else {
+  }
+  else
+  {
     qDebug("Open failed");
   }
 

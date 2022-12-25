@@ -19,7 +19,8 @@ class MenuWidget;
 }
 QT_END_NAMESPACE
 
-class MenuWidget : public QWidget {
+class MenuWidget : public QWidget
+{
   Q_OBJECT
 
 public:
