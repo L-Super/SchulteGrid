@@ -6,6 +6,5 @@
         <file>resources/help.png</file>
         <file>resources/log.png</file>
         <file>resources/whale.png</file>
-        <file>resources/bg.jpg</file>
     </qresource>
 </RCC>

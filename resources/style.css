@@ -17,9 +17,11 @@ QWidget#WhichModeWidget {
 
 QWidget#GameWidget {
     /* background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 #0F2027, stop:0.5 #203A43, stop:1 #2C5364); */
-    /* background-image: url(:/resources/bg.jpg); */
-    /*border-image: url(:/resources/bg.jpg);*/
     background-color: qlineargradient(spread:pad, x1:0.5, y1:1, x2:0.5, y2:0, stop:0 #2c3e50, stop:1 #FFFFFF);
+}
+
+QWidget#widget{
+    background-color: transparent;
 }
 
 QPushButton {
