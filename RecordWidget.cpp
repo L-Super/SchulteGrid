@@ -44,7 +44,6 @@ RecordWidget::RecordWidget(QWidget* parent) : QWidget(parent), ui(new Ui::Record
 RecordWidget::~RecordWidget()
 {
   delete ui;
-  qcout << "delete";
 }
 
 void RecordWidget::InitTableWidgetProperty()
@@ -101,7 +100,8 @@ void RecordWidget::CreateRowItem(int row, const QDateTime& date, const QString& 
   QTableWidgetItem* item;
   // 日期
   item = new QTableWidgetItem(date.toString("yyyy-MM-dd hh:mm:ss.zzz"), TABLE_ITEM_TYPE::DATE);
-  item->setTextAlignment(Qt::AlignHCenter | Qt::AlignVCenter);  // 文本对齐格式
+  // 文本对齐格式
+  item->setTextAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
   // row,col,item
   ui->tableWidget->setItem(row, TABLE_ITEM_TYPE::DATE, item);
 

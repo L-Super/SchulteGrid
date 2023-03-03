@@ -57,7 +57,32 @@ endif()
 add_subdirectory(3rdparty/leveldb ${CMAKE_BINARY_DIR}/leveldb)
 #include_directories(3rdparty/leveldb/include)
 
-add_executable(SchulteGrid main.cpp
+include(FetchContent)
+FetchContent_Declare(json
+        GIT_REPOSITORY https://github.com/nlohmann/json.git
+        SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/json
+        DOWNLOAD_EXTRACT_TIMESTAMP true
+        )
+FetchContent_MakeAvailable(json)
+
+FetchContent_Declare(fmt
+        URL https://github.com/fmtlib/fmt/archive/refs/tags/9.1.0.tar.gz
+        SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/fmt
+        DOWNLOAD_EXTRACT_TIMESTAMP true
+        )
+FetchContent_MakeAvailable(fmt)
+
+# 如果是Release模式，则去掉终端
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+    message(STATUS "Running ${CMAKE_BUILD_TYPE} mode")
+    set(CONSOLE "")
+else()
+    message(STATUS "Running ${CMAKE_BUILD_TYPE} mode")
+    # 去掉终端
+    set(CONSOLE WIN32)
+endif ()
+
+add_executable(SchulteGrid ${CONSOLE} main.cpp
         MenuWidget.cpp MenuWidget.h MenuWidget.ui
         WhichModeWidget.cpp WhichModeWidget.h WhichModeWidget.ui
         GameWidget.cpp GameWidget.h GameWidget.ui
@@ -67,19 +92,6 @@ add_executable(SchulteGrid main.cpp
         ${VERSIONINFO_RC}
         LeveldbPimpl.cpp LeveldbPimpl.h
         RecordWidget.cpp RecordWidget.h RecordWidget.ui)
-
-include(FetchContent)
-FetchContent_Declare(json
-        GIT_REPOSITORY https://github.com/nlohmann/json.git
-        SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/json
-        )
-FetchContent_MakeAvailable(json)
-
-FetchContent_Declare(fmt
-        URL https://github.com/fmtlib/fmt/archive/refs/tags/9.1.0.tar.gz
-        SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/fmt
-        )
-FetchContent_MakeAvailable(fmt)
 
 target_link_libraries(SchulteGrid
         Qt5::Core
@@ -117,4 +129,12 @@ if (WIN32)
                 "${QT_INSTALL_PATH}/bin/Qt5${QT_LIB}${DEBUG_SUFFIX}.dll"
                 "$<TARGET_FILE_DIR:${PROJECT_NAME}>")
     endforeach (QT_LIB)
+    # 复制其他库文件到可执行文件所在的目录
+    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy
+            "${QT_INSTALL_PATH}/bin/libgcc_s_seh-1.dll"
+            "${QT_INSTALL_PATH}/bin/libstdc++-6.dll"
+            "${QT_INSTALL_PATH}/bin/libwinpthread-1.dll"
+            "$<TARGET_FILE_DIR:${PROJECT_NAME}>"
+            )
 endif ()
